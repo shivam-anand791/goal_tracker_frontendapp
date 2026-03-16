@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusBoard - Login</title>
+  <link rel="stylesheet" href="auth-style.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="logo-dot"></div>
+        <div class="logo-text">
+          <span class="logo-title">FocusBoard</span>
+          <span class="logo-sub">Habits · Progress · You</span>
+        </div>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="loginForm" class="auth-form active">
+        <h2>Login</h2>
+        <p class="form-sub">Sign in to your account</p>
+
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="••••••••"
+            required
+          />
+          <button type="button" class="forgot-link" onclick="showForgotForm()">Forgot password?</button>
+        </div>
+
+        <button type="submit" class="auth-btn">Login</button>
+
+        <p class="form-toggle">
+          Don't have an account?
+          <button type="button" onclick="toggleForms()">Register here</button>
+        </p>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="registerForm" class="auth-form">
+        <h2>Create Account</h2>
+        <p class="form-sub">Join FocusBoard today</p>
+
+        <div class="form-group">
+          <label for="regName">Name</label>
+          <input
+            type="text"
+            id="regName"
+            placeholder="Your name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input
+            type="email"
+            id="regEmail"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input
+            type="password"
+            id="regPassword"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="regConfirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="regConfirmPassword"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <button type="submit" class="auth-btn">Register</button>
+
+        <p class="form-toggle">
+          Already have an account?
+          <button type="button" onclick="toggleForms()">Login here</button>
+        </p>
+      </form>
+
+      <!-- FORGOT PASSWORD FORM -->
+      <form id="forgotForm" class="auth-form">
+        <h2>Forgot Password</h2>
+        <p class="form-sub">Enter your email and we'll send a reset link</p>
+
+        <div class="form-group">
+          <label for="forgotEmail">Email</label>
+          <input
+            type="email"
+            id="forgotEmail"
+            placeholder="your@email.com"
+            required
+          />
+        </div>
+
+        <button type="submit" class="auth-btn">Send Reset Link</button>
+
+        <p class="form-toggle">
+          Remembered it?
+          <button type="button" onclick="showLoginForm()">Back to Login</button>
+        </p>
+      </form>
+
+      <!-- RESET PASSWORD FORM -->
+      <form id="resetForm" class="auth-form">
+        <h2>Reset Password</h2>
+        <p class="form-sub">Enter your new password below</p>
+
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input
+            type="password"
+            id="newPassword"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="confirmNewPassword">Confirm New Password</label>
+          <input
+            type="password"
+            id="confirmNewPassword"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <button type="submit" class="auth-btn">Reset Password</button>
+      </form>
+
+      <div id="errorMsg" class="error-msg"></div>
+      <div id="successMsg" class="success-msg"></div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>
