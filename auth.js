@@ -192,9 +192,10 @@ async function handleForgotPassword(e) {
   try {
     showError("");
     
-    // Add a simple timeout to the fetch
+    // Add a longer timeout to the fetch (emails can be slow)
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+
 
     const response = await fetch(`${API_URL}/auth/forgot-password`, {
       method: "POST",
