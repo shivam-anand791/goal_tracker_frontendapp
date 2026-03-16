@@ -191,12 +191,19 @@ async function handleForgotPassword(e) {
 
   try {
     showError("");
+    
+    // Add a simple timeout to the fetch
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+
     const response = await fetch(`${API_URL}/auth/forgot-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email }),
+      signal: controller.signal
     });
 
+    clearTimeout(timeoutId);
     const data = await response.json();
 
     if (!response.ok) {
@@ -206,12 +213,17 @@ async function handleForgotPassword(e) {
       forgotForm.reset();
     }
   } catch (err) {
-    showError("Network error. Please try again.");
+    if (err.name === "AbortError") {
+      showError("Request timed out. Please try again.");
+    } else {
+      showError("Network error. Please try again.");
+    }
     console.error(err);
   } finally {
     btn.disabled = false;
     btn.textContent = "Send Reset Link";
   }
+
 }
 
 // -------- RESET PASSWORD --------
