@@ -2,7 +2,8 @@
 
 // For Split Deployment (Vercel + Render)
 // 1. UPDATE THIS to your Render URL after deploying your backend
-const RENDER_API_URL = "https://your-backend-name.onrender.com/api";
+const RENDER_API_URL = "https://habit-tracker-api-a4d3.onrender.com/api";
+
 
 const API_URL = window.location.origin.includes("localhost") || window.location.origin.includes("127.0.0.1") 
   ? "http://localhost:5000/api" 
